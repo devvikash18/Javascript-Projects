@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repetition Logic</title>
+    <link rel="stylesheet" href="./Assets/CSS/bootsrap.min.css">
+    <link rel="stylesheet" href="./Assets/CSS/style.css">
+</head>
+
+<body>
+    <div id="input-container">
+        <div class="text-center">
+            <h2 class="mb-4 fw-bold text-white">Repetition Logic</h2>
+            <div id="inputs"></div>
+            <div class="group-btn mt-4">
+                <button id="random" class="btn border-0 fw-bold">Random</button>
+                <button id="clear" class="btn border-0 fw-bold ">Clear</button>
+                <button id="max" class="btn border-0 fw-bold ">Max</button>   
+                <button id="min" class="btn border-0 fw-bold ">Min</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./Assets/JS/bootsrap.boundle.js"></script>
+    <script src="./Assets/JS/script.js"></script>
+    <script>
+        $(document).ready(function () {
+            let inputElement = document.getElementById("inputs");
+
+            for (let i = 1; i <= 8; i++) {
+                inputElement.innerHTML += `<input type = "number" id ="num${i}"/>`;
+
+            }
+            $("#random").on("click", function () {
+                for (let i = 1; i <= 8; i++) {
+                    document.getElementById(`num${i}`).value = parseInt(Math.random() * 100);
+                }
+            });
+           $("#max").on("click", function () {
+                let max = -Infinity;
+
+                // First, remove old highlights
+                for (let i = 1; i <= 8; i++) {
+                    $(`#num${i}`).removeClass("highlight-max highlight-min");
+                    let value = Number(document.getElementById(`num${i}`).value);
+                    if (max < value) {
+                        max = value;
+                    }
+                }
+
+                // Highlight  max values
+                for (let i = 1; i <= 8; i++) {
+                    let value = Number(document.getElementById(`num${i}`).value);
+                    if (value === max) {
+                        $(`#num${i}`).addClass("highlight-max");
+                    }
+                }
+
+                console.log("Max:", max);
+            });
+
+            $("#min").on("click", function () {
+                let min = Infinity;
+
+                // First, remove old highlights
+                for (let i = 1; i <= 8; i++) {
+                    $(`#num${i}`).removeClass("highlight-max highlight-min");
+                    let value = Number(document.getElementById(`num${i}`).value);
+                    if (min > value) {
+                        min = value;
+                    }
+                }
+
+                // Highlight min values
+                for (let i = 1; i <= 8; i++) {
+                    let value = Number(document.getElementById(`num${i}`).value);
+                    if (value === min) {
+                        $(`#num${i}`).addClass("highlight-min");
+                    }
+                }
+
+                console.log("Min:", min);
+            });
+            $("#clear").on("click", function () {
+                for (let i = 1; i <= 8; i++) {
+                    document.getElementById(`num${i}`).value = "";
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>

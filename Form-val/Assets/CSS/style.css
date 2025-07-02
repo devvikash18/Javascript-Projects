@@ -1,0 +1,46 @@
+body {
+    background: linear-gradient(135deg, hsl(187, 83%, 61%), #435fec);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    height: 100vh;
+}
+
+.form-section {
+    background-color: #3d5cf5;
+    font-size: 17px;
+    font-weight: 500;
+    background: transparent;
+    padding: 30px;
+    margin: 50px 0px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label{
+    color: #fff;
+}
+
+input{
+    font-weight: 600;
+}
+
+.form-control, option{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.btn{
+    background-color: rgb(3, 37, 79);
+    border: none;
+    color: #fff;
+}
+
+.btn:hover{
+    transition: all 0.3 linear;
+    background-color: rgba(3, 45, 79, 0.584);
+}
+
