@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="./Assets/css/bootsrap.min.css">
+    <link rel="stylesheet" href="./Assets/css/style.css">
+</head>
+
+<body>
+    <div class="game">
+        <button class="cell" id="b1">X</button>
+        <button class="cell" id="b2">O</button>
+        <button class="cell" id="b3"></button>
+        <button class="cell" id="b4"></button>
+        <button class="cell" id="b5"></button>
+        <button class="cell" id="b6"></button>
+        <button class="cell" id="b7"></button>
+        <button class="cell" id="b8"></button>
+        <button class="cell" id="b9"></button>
+
+    </div>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- Bootsrap Boundle -->
+    <script src="./JS/bootsrap-boundle.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+
+        let counter = 0;
+        let flag = true
+
+        function fireAlert() {
+            Swal.fire({
+                title: "",
+                icon: "success",
+                draggable: true
+            });
+
+        }
+
+        $(document).ready(function () {
+
+            $(".cell").on("click", function(){
+                if(counter % 2 != 0){
+                 cell = this
+                }else{
+
+                }
+            })
+
+
+
+           
+        })
+    </script>
+
+
+</body>
+
+</html>
