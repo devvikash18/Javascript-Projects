@@ -11,8 +11,8 @@
 
 <body>
     <div class="game">
-        <button class="cell" id="b1">X</button>
-        <button class="cell" id="b2">O</button>
+        <button class="cell" id="b1"></button>
+        <button class="cell" id="b2"></button>
         <button class="cell" id="b3"></button>
         <button class="cell" id="b4"></button>
         <button class="cell" id="b5"></button>
@@ -24,10 +24,7 @@
     </div>
 
     <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-    <!-- Bootsrap Boundle -->
-    <script src="./JS/bootsrap-boundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
     <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -35,31 +32,169 @@
     <script>
 
         let counter = 0;
-        let flag = true
 
-        function fireAlert() {
+        function reset(){
+            counter = 0;
+            for(let i = 1; i <= 9; i++){
+                document.getElementById(`b${i}`).innerHTML = "";
+            }
+        }
+
+        function fireAlert(winner) {
             Swal.fire({
-                title: "",
+                title: `Player ${winner} Won....`,
                 icon: "success",
-                draggable: true
             });
+            reset();
+        }
+
+        function checkWin(symbol) {
+
+            let flag = true;
+            // checking for the first row //
+            for (let i = 1; i <= 3; i++) {
+                let val = document.getElementById(`b${i}`).innerHTML;
+                if (val != symbol) {
+                    flag = false;
+                    break;
+                };
+            };
+            if (flag) {
+                fireAlert(symbol);
+                return true;
+            };
+
+            // Cheking for the second row //
+            flag = true;
+            for (let i = 4; i <= 6; i++) {
+                let val = document.getElementById(`b${i}`).innerHTML;
+                if (val != symbol) {
+                    flag = false;
+                    break;
+                };
+            };
+            if (flag) {
+                fireAlert(symbol);
+                return true;
+            };
+
+            // Cheking for the third row //
+            flag = true;
+            for (let i = 7; i <= 9; i++) {
+                let val = document.getElementById(`b${i}`).innerHTML;
+                if (val != symbol) {
+                    flag = false;
+                    break;
+                };
+            };
+            if (flag) {
+                fireAlert(symbol);
+                return true;
+            };
+
+            // checking for the first column //
+            flag = true;
+            for (let i = 1; i <= 7; i += 3) {
+                let val = document.getElementById(`b${i}`).innerHTML;
+                if (val != symbol) {
+                    flag = false;
+                    break;
+                };
+            };
+            if (flag) {
+                fireAlert(symbol);
+                return true;
+            };
+
+            // Cheking for the second column //
+            flag = true;
+            for (let i = 2; i <= 8; i += 3) {
+                let val = document.getElementById(`b${i}`).innerHTML;
+                if (val != symbol) {
+                    flag = false;
+                    break;
+                };
+            };
+            if (flag) {
+                fireAlert(symbol);
+                return true;
+            };
+
+            // Cheking for the third column //
+            flag = true;
+            for (let i = 3; i <= 9; i += 3) {
+                let val = document.getElementById(`b${i}`).innerHTML;
+                if (val != symbol) {
+                    flag = false;
+                    break;
+                };
+            };
+            if (flag) {
+                fireAlert(symbol);
+                return true;
+            };
+
+            // ..........Cheking for the first diagonal.........//
+            flag = true;
+            for (let i = 1; i <= 9; i += 4) {
+                let val = document.getElementById(`b${i}`).innerHTML;
+                if (val != symbol) {
+                    flag = false;
+                    break;
+                };
+            };
+            if (flag) {
+                fireAlert(symbol);
+                return true;
+            };
+
+            //........... Cheking for the second diagonal.........//
+            flag = true;
+            for (let i = 3; i <= 7; i += 2) {
+                let val = document.getElementById(`b${i}`).innerHTML;
+                if (val != symbol) {
+                    flag = false;
+                    break;
+                };
+            };
+            if (flag) {
+                fireAlert(symbol);
+                return true;
+            };
 
         }
 
         $(document).ready(function () {
+            $(".cell").on("click", function (e) {
+                let cell = this;
 
-            $(".cell").on("click", function(){
-                if(counter % 2 != 0){
-                 cell = this
-                }else{
-
+                if (cell.innerHTML == "") {
+                    if (counter % 2 == 0) {
+                        cell.innerHTML = "X"
+                    } else {
+                        cell.innerHTML = "O"
+                    }
+                    counter++;
+                } else {
+                    alert("you cannot overrite the move..")
                 }
-            })
 
+                if (counter >= 5) {
+                    let win = checkWin(cell.innerHTML)
 
+                    if(counter == 9){
+                        if (win == false) {
+                        Swal.fire({
+                            title: `Game is Drow....`,
+                        });
+                        reset();
+                    };
+                    };
+                };
 
-           
-        })
+            });
+        });
+
     </script>
 
 
