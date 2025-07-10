@@ -10,6 +10,14 @@
 </head>
 
 <body>
+    <h1 class="text-center">Tic Tac Toe</h1>
+    <div class="text-white">Player <span id="turn">X</span>`s Turn</div>
+    <div class="d-flex text-white gap-4">
+        <div class="" >Playyer X Points <span id="scorex">0</span></div>
+        <div class="" >Playyer O Points <span id="scoreo">0</span></div>
+    </div>
+    
+
     <div class="game">
         <button class="cell" id="b1"></button>
         <button class="cell" id="b2"></button>
@@ -33,11 +41,16 @@
 
         let counter = 0;
 
+        let pointx = 0;
+        let pointo = 0;
+
+
         function reset(){
             counter = 0;
             for(let i = 1; i <= 9; i++){
                 document.getElementById(`b${i}`).innerHTML = "";
             }
+            document.getElementById("turn").innerHTML="X";
         }
 
         function fireAlert(winner) {
@@ -45,6 +58,9 @@
                 title: `Player ${winner} Won....`,
                 icon: "success",
             });
+            if(symbol == "X"){
+                pointx++;
+            }
             reset();
         }
 
@@ -171,8 +187,10 @@
                 if (cell.innerHTML == "") {
                     if (counter % 2 == 0) {
                         cell.innerHTML = "X"
+                        document.getElementById("turn").innerHTML="O";
                     } else {
                         cell.innerHTML = "O"
+                          document.getElementById("turn").innerHTML="X";
                     }
                     counter++;
                 } else {

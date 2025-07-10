@@ -10,39 +10,55 @@
 </head>
 
 <body>
-    <div id="input-container">
-        <div class="text-center">
-            <h2 class="mb-4 fw-bold text-white">Repetition Logic</h2>
-            <div id="inputs"></div>
-            <div class="group-btn mt-4">
-                <button id="random" class="btn border-0 fw-bold">Random</button>
-                <button id="clear" class="btn border-0 fw-bold ">Clear</button>
-                <button id="max" class="btn border-0 fw-bold ">Max</button>   
-                <button id="min" class="btn border-0 fw-bold ">Min</button>
+    <div class="container">
+        <div id="input-container">
+            <div id="inputs" class=""></div>
+            <div class="btn-container d-flex align-items-center gap-2">
+                <div class="group-btn1 my-2">
+                    <button type="button" id="max" class="btn ">Max</button>
+                    <button type="button" id="min" class="btn ">Min</button>
+                </div>
+                <div class="group-btn2">
+                    <button type="button" id="random" class="btn">Random</button>
+                    <button type="reset" id="clear" class="btn ">Clear</button>
+                </div>
             </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="./Assets/JS/bootsrap.boundle.js"></script>
+    <script src="./Assets/JS/bootsrap.bundle.js"></script>
     <script src="./Assets/JS/script.js"></script>
     <script>
         $(document).ready(function () {
+            const size = 10;
             let inputElement = document.getElementById("inputs");
 
-            for (let i = 1; i <= 8; i++) {
+            for (let i = 1; i <= size; i++) {
                 inputElement.innerHTML += `<input type = "number" id ="num${i}"/>`;
 
             }
+
             $("#random").on("click", function () {
-                for (let i = 1; i <= 8; i++) {
-                    document.getElementById(`num${i}`).value = parseInt(Math.random() * 100);
+                for (let i = 1; i <= size; i++) {
+                    let box = document.getElementById(`num${i}`)
+                    box.value = parseInt(Math.random() * 100)
+                    $(box).removeClass("highlight-max highlight-min")
                 }
             });
-           $("#max").on("click", function () {
+
+            $("#clear").on("click", function () {
+                for (let i = 1; i <= size; i++) {
+                    let box = document.getElementById(`num${i}`)
+                    box.value = ""
+                    $(box).removeClass("highlight-max highlight-min")
+                }
+            })
+
+            $("#max").on("click", function () {
                 let max = -Infinity;
 
                 // First, remove old highlights
-                for (let i = 1; i <= 8; i++) {
+                for (let i = 1; i <= size; i++) {
                     $(`#num${i}`).removeClass("highlight-max highlight-min");
                     let value = Number(document.getElementById(`num${i}`).value);
                     if (max < value) {
@@ -51,7 +67,7 @@
                 }
 
                 // Highlight  max values
-                for (let i = 1; i <= 8; i++) {
+                for (let i = 1; i <= size; i++) {
                     let value = Number(document.getElementById(`num${i}`).value);
                     if (value === max) {
                         $(`#num${i}`).addClass("highlight-max");
@@ -65,7 +81,7 @@
                 let min = Infinity;
 
                 // First, remove old highlights
-                for (let i = 1; i <= 8; i++) {
+                for (let i = 1; i <= size; i++) {
                     $(`#num${i}`).removeClass("highlight-max highlight-min");
                     let value = Number(document.getElementById(`num${i}`).value);
                     if (min > value) {
@@ -74,7 +90,7 @@
                 }
 
                 // Highlight min values
-                for (let i = 1; i <= 8; i++) {
+                for (let i = 1; i <= size; i++) {
                     let value = Number(document.getElementById(`num${i}`).value);
                     if (value === min) {
                         $(`#num${i}`).addClass("highlight-min");
@@ -83,11 +99,7 @@
 
                 console.log("Min:", min);
             });
-            $("#clear").on("click", function () {
-                for (let i = 1; i <= 8; i++) {
-                    document.getElementById(`num${i}`).value = "";
-                }
-            })
+
         })
     </script>
 
