@@ -14,83 +14,51 @@
 
 <body>
 
-    <div class="container">
+    <div class="container form-container">
         <div class="form-section">
-            <h2 class="form-title text-center text-primary fw-bold my-4 fs-1 text-white">Form Validation</h2>
+            <h2 class="form-title text-center fw-bold text-dark">Form Validation</h2>
             <form action="" id="form">
                 <div class="row">
                     <!-------- Name -------->
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" class="form-control" name="name">
-                        </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label fw-bold">Name:</label>
+                        <input type="text" id="name" class="form-control" name="name" placeholder="Enter your Name">
                     </div>
                     <!-------- Email -------->
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" class="form-control" name="email">
-                        </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-bold">Email:</label>
+                        <input type="email" id="email" class="form-control" name="email" placeholder="Enter your Email">
                     </div>
                     <!-------- Password -------->
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="pass">Password:</label>
-                            <input type="password" id="pass" class="form-control" name="Password">
-                        </div>
+                    <div class="mb-3">
+                        <label for="pass" class="form-label fw-bold">Password:</label>
+                        <input type="password" id="pass" class="form-control" name="Password" placeholder="Enter Password">
                     </div>
                     <!-------- Confirm Password -------->
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="cpass">Confirm Password:</label>
-                            <input type="password" id="cpass" class="form-control" name="Cpassword">
-                        </div>
+                    <div class="mb-3">
+                        <label for="cpass" class="form-label fw-bold">Confirm Password:</label>
+                        <input type="password" id="cpass" class="form-control" name="Cpassword" placeholder="Re-enter Password">
                     </div>
                     <!-------- Phone Number -------->
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="phone">Phone:</label>
-                            <input type="number" id="phone" class="form-control" name="phone">
-                        </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label fw-bold">Phone:</label>
+                        <input type="number" id="phone" class="form-control" name="phone" placeholder="Enter Phone Number">
                     </div>
                     <!-------- City -------->
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="city" class="form-label">Choose your City:</label>
-                            <select name="city" id="city" class="form-select fw-bold" required>
-                                <option value="">Select</option>
-                                <option value="surat">Surat</option>
-                                <option value="ahmedabad">Ahmedabad</option>
-                                <option value="vadodara">Vadodara</option>
-                                <option value="rajkot">Rajkot</option>
-                                <option value="porbandar">Porbandar</option>
-                            </select>
-                        </div>
+                    <div class="mb-3">
+                        <label for="city" class="form-label fw-bold">Choose your City:</label>
+                        <select name="city" id="city" class="form-select fw-bold" required>
+                            <option value="">Select</option>
+                            <option value="surat">Surat</option>
+                            <option value="ahmedabad">Ahmedabad</option>
+                            <option value="vadodara">Vadodara</option>
+                            <option value="rajkot">Rajkot</option>
+                            <option value="porbandar">Porbandar</option>
+                        </select>
                     </div>
-                    <!-------- Date of Birth -------->
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="dob">DOB:</label>
-                            <input type="date" id="dob" class="form-control" name="dob" required>
-                        </div>
-                    </div>
-                    <!-------- Gender -------->
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label class="form-label">Gender:</label><br>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
-                                <label class="form-check-label" for="male">Male</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                                <label class="form-check-label" for="female">Female</label>
-                            </div>
-                        </div>
-                    </div>
+                
                     <div class="text-center my-3">
-                        <button class=" btn px-lg-5 py-2 fw-bold" id="submit-btn">Submit</button>
+                        <button class=" btn btn-success px-5 py-2 fw-bold" id="submit-btn">Submit</button>
                     </div>
                 </div>
             </form>
@@ -120,8 +88,6 @@
             let cpassElement = $(document.getElementById("cpass"));
             let phoneElement = $(document.getElementById("phone"));
             let cityElement = $(document.getElementById("city"));
-            let dobElement = $(document.getElementById("dob"));
-            let genderElements = $('input[name="gender"]');
 
             let formElement = $(document.getElementById("form"));
 
@@ -135,8 +101,6 @@
                 let cpass = cpassElement.val();
                 let phone = phoneElement.val();
                 let city = cityElement.val();
-                let dob = dobElement.val();
-                let gender = genderElements.filter(":checked").val();
 
 
                 let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -154,7 +118,7 @@
                     return;
                 }
                 if (cpass !== pass) {
-                    Swal.fire("Confirm Password should be same as Password ....!");
+                    Swal.fire("Confirm Password must be same as Password ....!");
                     return;
                 }
                 if (phone.trim() == "") {
@@ -162,25 +126,9 @@
                     return;
                 }
                 if (city === "") {
-            Swal.fire("Please select your city.");
-            return;
-        }
-
-        if (dob === "") {
-            Swal.fire("Please select your date of birth.");
-            return;
-        }
-
-        const today = new Date().toISOString().split("T")[0];
-        if (dob > today) {
-            Swal.fire("Date of Birth cannot be in the future.");
-            return;
-        }
-
-        if (!gender) {
-            Swal.fire("Please select your gender.");
-            return;
-        }
+                    Swal.fire("Please select your city.");
+                    return;
+                }
 
                 formElement.submit();
 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <link rel="stylesheet" href="../Assets/CSS/Ques-CSS/style.css">
+   
+</head>
+
+<body>
+    <div class="container">
+        <h2>Anagrams Checker</h2>
+        <input type="text" id="strInput1" placeholder="Enter first string">
+        <input type="text" id="strInput2" placeholder="Enter second string">
+
+        <button id="checkBtn">Check</button>
+        <h3 id="answer"></h3>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#checkBtn").on("click", function () {
+                let strInput1 = $("#strInput1").val();
+                let strInput2 = $("#strInput2").val();
+
+
+                $("#answer").removeClass("green red");
+
+                if (strInput1 == "" || strInput2 == "") {
+                    $("#answer").text("Please enter some word in both field..");
+                } else if (str === revStr) {
+                    $("#answer").text("It's a Palindrome..").addClass("green");
+                } else {
+                    $("#answer").text("It's not a Palindrome..").addClass("red");
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

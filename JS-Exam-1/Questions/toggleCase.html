@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToggleCase Converter</title>
+    <link rel="stylesheet" href="../Assets/CSS/Ques-CSS/style.css">
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>ToggleCase Converter</h2>
+        <input type="text" id="strInput" placeholder="Enter some text">
+        <button id="convertBtn">Chonvert</button>
+        <h3 id="answer"></h3>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#convertBtn").on("click", function () {
+                let input = $("#strInput").val()
+
+                
+
+
+                if (input === "") {
+                    $("#answer").text("Please enter some text..");
+                } else if(input === upperCase){
+                    $("#answer").text(lowerCase)
+                }else{
+                     $("#answer").text(lowerCase)
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

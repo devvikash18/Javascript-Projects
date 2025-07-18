@@ -1,46 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+
 body {
-    background: linear-gradient(135deg, hsl(187, 83%, 61%), #435fec);
+    background: linear-gradient(135deg, #2b5876, #4e4376);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 20px;
-    height: 100vh;
+    padding: 50px 0;
+    color: #333;
+    background-repeat: no-repeat;
+
 }
 
-.form-section {
-    background-color: #3d5cf5;
-    font-size: 17px;
-    font-weight: 500;
-    background: transparent;
-    padding: 30px;
-    margin: 50px 0px;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    max-width: 700px;
+.container {
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 1320px;
+    padding: 25px;
 }
 
-label{
-    color: #fff;
+.form-container {
+    max-width: 550px;
+    background: #fff8e8;
+    border: 1px solid black;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-input{
-    font-weight: 600;
+label.form-label {
+    color: #333;
+}
+.form-control,
+.form-select {
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 2px solid #1a1111;
+    transition: 0.3s ease;
 }
 
-.form-control, option{
-    font-size: 15px;
-    font-weight: 600;
+.form-control:focus,
+.form-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-.btn{
-    background-color: rgb(3, 37, 79);
-    border: none;
-    color: #fff;
+#submit-btn {
+    border-radius: 10px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
 }
 
-.btn:hover{
-    transition: all 0.3 linear;
-    background-color: rgba(3, 45, 79, 0.584);
+#submit-btn:hover {
+    background-color: #0a4714;
+    transform: scale(1.05);
 }
 
+
+/* .swal2-popup {
+    font-size: 1.1rem !important;
+    border-radius: 10px !important;
+} */
+
+
+@media (max-width: 576px) {
+    .container {
+        padding: 20px;
+    }
+
+    .form-title {
+        font-size: 2rem;
+    }
+}
