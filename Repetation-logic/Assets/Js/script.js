@@ -40,7 +40,7 @@ $(document).ready(function () {
         if (hasEmpty) {
             Swal.fire({
                 icon: "warning",
-                title: "Incomplete Input",
+                title: "Empty Input",
                 text: "Please fill in all input fields!",
             });
             return;
@@ -74,7 +74,7 @@ $(document).ready(function () {
         if (hasEmpty) {
             Swal.fire({
                 icon: "warning",
-                title: "Incomplete Input",
+                title: "Empty Input",
                 text: "Please fill in all input fields!",
             });
             return;

@@ -6,34 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palindrome Checker</title>
     <link rel="stylesheet" href="../Assets/CSS/Ques-CSS/style.css">
-    <style>
-        
-    </style>
+    <link rel="stylesheet" href="../Assets/CSS/Ques-CSS/bootsrap.min.css">
+
 </head>
 
 <body>
-    <div class="container">
-        <h2>Palindrome Checker</h2>
-        <input type="text" id="strInput" placeholder="Enter some text">
-        <button id="checkBtn">Check</button>
+    <div class="input-container">
+        <h2 class="mb-4">Palindrome Checker</h2>
+        <input type="text" id="strInput" class="text-center" placeholder="Enter some text">
+        <div class="btn-container">
+            <button type="button" id="checkBtn" class="btn btn-primary">Check</button>
+            <button type="button" id="clear" class="btn btn-danger">Clear</button>
+        </div>
         <h3 id="answer"></h3>
     </div>
 
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
     <script>
         $(document).ready(function () {
+             $("#answer").removeClass("green red");
             $("#checkBtn").on("click", function () {
                 let str = $("#strInput").val().toLowerCase().replace(/[^a-z0-9]/gi, '');
                 let revStr = str.split('').reverse().join('');
 
-                $("#answer").removeClass("green red");
 
                 if (str === "") {
-                    $("#answer").text("Please enter some text..");
+                    $("#answer").text("Please enter some text..").addClass("red");
                 } else if (str === revStr) {
-                    $("#answer").text("It's a Palindrome..").addClass("green");
+                    $("#answer").text("It's a Palindrome!").addClass("green");
                 } else {
-                    $("#answer").text("It's not a Palindrome..").addClass("red");
+                    $("#answer").text("It's not a Palindrome.").addClass("red");
+                }
+            });
+
+            $("#clear").on("click", function () {
+                $("#strInput").val("");
+                $("#answer").text("").removeClass("green red");
+                if (str === "") {
+                    $("#answer").text("Please enter some text..").addClass("red");
                 }
             });
         });
