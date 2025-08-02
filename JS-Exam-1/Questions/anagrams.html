@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagrams Checker</title>
+    <link rel="stylesheet" href="../Assets/CSS/Ques-CSS/style.css">
+    <link rel="stylesheet" href="../Assets/CSS/Ques-CSS/bootsrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="input-container ">
+        <h2 class="mb-4 fw-bold">Anagrams Checker</h2>
+        <input type="text" id="strInput1" placeholder="Enter first string">
+        <input type="text" id="strInput2" placeholder="Enter second string">
+
+        <h4 id="answer" class="mb-3" style="height: 50px;"></h4>
+
+        <div class="btn-container">
+            <button type="button" id="checkBtn" class="btn btn-primary fw-bold">
+                <i class="bi bi-check-circle"></i> Check
+            </button>
+            <button type="button" id="clear" class="btn btn-danger fw-bold">
+                <i class="bi bi-x-circle"></i> Clear
+            </button>
+            <a href="../index.html">
+                <button type="button" id="home" class="btn btn-warning fw-bold">
+                    <i class="bi bi-house-door"></i> Home
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#answer").removeClass("green red");
+
+            function sortString(str) {
+                return str.toLowerCase().replace(/\s/g, '').split('').sort().join('');
+            }
+
+            $("#checkBtn").on("click", function () {
+                let strInput1 = $("#strInput1").val();
+                let strInput2 = $("#strInput2").val();
+
+                $("#answer").removeClass("green red");
+
+                if (strInput1 === "" || strInput2 === "") {
+                    $("#answer").text("Please enter text.").addClass("red");
+                } else if (sortString(strInput1) === sortString(strInput2)) {
+                    $("#answer").text("It's an Anagram!").addClass("green");
+                } else {
+                    $("#answer").text("It's not an Anagram.").addClass("red");
+                }
+            });
+
+            $("#clear").on("click", function () {
+                $("#strInput1, #strInput2").val("");
+                $("#answer").text("").removeClass("green red");
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

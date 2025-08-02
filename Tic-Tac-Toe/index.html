@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="./Assets/css/bootsrap.min.css">
+    <link rel="stylesheet" href="./Assets/css/style.css">
+</head>
+
+<body>
+    <!-- Game Title -->
+    <h2 class="text-center text-info fw-bold display-4 mt-2 fs-1 mb-0">Tic Tac Toe</h2>
+
+
+    <div class="game-container mt-2 mb-0 d-flex flex-column align-items-center">
+
+        <h4 class="text-center mb-4">
+            Current Turn: <span id="turn" class="text-warning">X</span>
+        </h4>
+
+        <div class="game-card bg-dark text-white p-3 rounded shadow" style="min-width: 300px;">
+            <div class="d-flex justify-content-between">
+                <div class="text-center me-4">
+                    <h6 class="text-info">Player X :</h6>
+                    <h3 id="scorex" class="fw-bold">0</h3>
+                </div>
+                <div class="text-center ms-4">
+                    <h6 class="text-success">Player O :</h6>
+                    <h3 id="scoreo" class="fw-bold">0</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="game">
+        <button class="cell" id="b1"></button>
+        <button class="cell" id="b2"></button>
+        <button class="cell" id="b3"></button>
+        <button class="cell" id="b4"></button>
+        <button class="cell" id="b5"></button>
+        <button class="cell" id="b6"></button>
+        <button class="cell" id="b7"></button>
+        <button class="cell" id="b8"></button>
+        <button class="cell" id="b9"></button>
+    </div>
+
+    <div class="text-center mt-4">
+        <button id="newGameBtn" class="btn btn-warning px-4 py-2 fw-semibold shadow">New Game</button>
+    </div>
+
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Script Js File -->
+    <script src="./Assets/Js/script.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #121212;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    overflow-y: scroll;
+    line-height: 1.6;
+}
+
+.game-container {
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 12px;
+}
+
+body.swal2-shown {
+    padding-right: 0;
+}
+
+
+h2 {
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: clamp(1.5rem, 5vw, 3rem);
+}
+
+#turn {
+    color: #ffc107;
+    font-weight: bold;
+    text-shadow: 0 0 8px #ffc107aa;
+    animation: pulse 1.2s infinite alternate;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.cell {
+    width: 120px;
+    height: 120px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    background-color: #1f1f1f;
+    color: #ffffff;
+    border: 2px solid #444;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+    box-shadow:
+        6px 6px 12px #0e0e0e,
+        -6px -6px 12px #2a2a2a;
+
+    animation: popIn 0.4s ease;
+}
+
+.cell:hover {
+
+    background: #232323;
+    box-shadow:
+        inset 4px 4px 8px #0e0e0e,
+        inset -4px -4px 8px #2a2a2a;
+    transform: scale(1.03);
+    z-index: 1;
+}
+
+
+.cell:active {
+    transform: scale(0.95);
+    box-shadow:
+        inset 2px 2px 5px #0a0a0a,
+        inset -2px -2px 5px #292929;
+    background-color: #2e2e2e;
+}
+
+.cell.win {
+    background-color: #2b2b2b !important;
+    color: #4caf50;
+    box-shadow:
+        0 0 12px #4caf50,
+        inset 0 0 8px #4caf50;
+}
+
+.score-card {
+    background-color: #1f1f1f;
+    border-radius: 1rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.score-card:hover {
+    transform: scale(1.01);
+}
+
+#scorex,
+#scoreo {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 1px;
+}
+
+#newGameBtn {
+    background-color: #1f1f1f;
+    color: #ffc107;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    box-shadow:
+        6px 6px 12px #0e0e0e,
+       -6px -6px 12px #2a2a2a;
+}
+
+#newGameBtn:hover {
+    background-color: #232323;
+    transform: scale(1.05);
+    box-shadow:
+        inset 4px 4px 8px #0e0e0e,
+        inset -4px -4px 8px #2a2a2a;
+}
+
+
+@media (max-width: 600px) {
+    .game {
+        grid-template-columns: repeat(3, 80px);
+        grid-gap: 8px;
+    }
+
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+
+
+    .card {
+        padding: 7px 14px;
+    }
+
+
+    #scorex,
+    #scoreo {
+        font-size: 1.5rem;
+    }
+
+
+}
