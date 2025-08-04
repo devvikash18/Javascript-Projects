@@ -37,6 +37,7 @@ h1 {
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s, box-shadow 0.2s;
+  padding: 10px;
 }
 
 .card:hover {
