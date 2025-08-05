@@ -2,93 +2,44 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Todo List</title>
-    <link rel="stylesheet" href="./Assets/css/bootsrap.min.css">
-    <link rel="stylesheet" href="./Assets/css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>To-Do List</title>
+
+    <link rel="stylesheet" href="./Assets/css/bootsrap.min.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="./Assets/css/style.css" />
 </head>
 
 <body>
+    <div class="container">
+        <div class="todo-app">
+            <h1 class="todo-title fs-2 fw-bold mb-3 text-center text-light">📝 To-Do List</h1>
 
-    <div class="todo-section">
-        <div class="container">
-            <div class="todo-box">
-                <h1 class="todo-title">Todo List <img src="./Assets/images/icon.png" alt=""></h1>
-            </div>
-        
-            <div class="mb-4">
-                <div class="input-elements">
-                    <input type="text" class="form-control" placeholder="">
-                </div>
-            </div>
-        </div>
-    </div>
-    
-
-        <div class="todo-container">
-            <h1>To-Do List</h1>
-
-            <form id="todoForm">
-
-                <div class="mb-3">
-                    <label for="priority" class="form-label">Select Your Priority:</label>
-                    <select name="priority" id="priority" class="form-select" required>
-                        <option value="">Select Priority</option>
-                        <option value="high">High Priority</option>
-                        <option value="medium">Medium Priority</option>
-                        <option value="low">Low Priority</option>
-                    </select>
-
-                </div>
-
-
-                <!-- <input type="text" id="taskInput" placeholder="Select Priority" required>
-                <select class="form-select" id="priorityInput">
-                    <option value="high">High</option>
-                    <option value="medium" selected>Medium</option>
-                    <option value="low">Low</option>
-                </select> -->
-                <button type="submit">Add</button>
+            <form action="#" class="input-area">
+                <input type="text" id="taskInput" placeholder="Add a new task..." required />
+                <button class="add-btn " type="submit" id="add-task-btn" title="Add Task">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
             </form>
 
-            <div class="todo-list" id="todoList"></div>
+            <div class="todo-container">
+                <select name="task" id="task" class="form-select" required>
+                    <option value="">Select Priority</option>
+                    <option value="high" class="high">❗High Priority</option>
+                    <option value="medium" class="medium">🟡 Medium Priority</option>
+                    <option value="low" class="low">🟢 Low Priority</option>
+                </select>
+            </div>
         </div>
     </div>
 
     <script src="./Assets/js/bootsrap.boundle.js"></script>
-
-    <script>
-        const form = document.getElementById("todoForm");
-        const taskInput = document.getElementById("taskInput");
-        const priorityInput = document.getElementById("priorityInput");
-        const todoList = document.getElementById("todoList");
-
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const task = taskInput.value.trim();
-            const priority = priorityInput.value;
-
-            if (task === "") return;
-
-            const todoItem = document.createElement("div");
-            todoItem.className = `todo-item ${priority}`;
-
-            todoItem.innerHTML = `
-        <span>${task} - <strong>${priority.toUpperCase()}</strong></span>
-        <button class="delete-btn">Delete</button>
-      `;
-
-            todoItem.querySelector(".delete-btn").addEventListener("click", () => {
-                todoItem.remove();
-            });
-
-            todoList.appendChild(todoItem);
-            form.reset();
-        });
-    </script>
-
+    <script src="./Assets/js/script.js"></script>
 </body>
 
 </html>

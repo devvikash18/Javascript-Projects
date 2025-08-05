@@ -56,15 +56,15 @@
                 const sortedWords = [...new Set(words)].sort((a, b) => a.length - b.length);
 
                 if (sortedWords.length < 2) {
-                    $("#answer").text("Not enough unique word lengths to find second smallest/largest.").addClass("red");
+                    $("#answer").text("Not enough unique word lengths.").addClass("red");
                     return;
                 }
 
                 const secondSmallest = sortedWords[1];
                 const secondLargest = sortedWords[sortedWords.length - 2];
 
-                $("#answer").text(`Second Smallest:${secondSmallest}`).addClass("red");
-                $("#answer").text(`Second Largest:${secondLargest}`).addClass("green")
+                $("#answer").text(`Second Smallest: ${secondSmallest}`).addClass("red");
+                $("#answer").text(`Second Largest: ${secondLargest}`).addClass("green")
 
             });
 

@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,8 +6,103 @@
   text-decoration: none;
 }
 
-todo-section{
+body {
+  background: #3F5EFB;
+  /* background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%); */
+  background: linear-gradient(135deg, #153677, #4e085f);
+
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  position: relative;
+}
+
+.container {
   width: 100%;
   height: 100vh;
-  background-color: linear-gradient(135deg, #153677, #4e085f) ;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.todo-app {
+  width: 100%;
+  max-width: 450px;
+  height: 450px;
+  border-radius: 15px;
+  padding: 20px;
+  align-items: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  background: transparent;
+
+}
+
+.input-area {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+#taskInput {
+  border-radius: 16px;
+  padding: 10px 20px;
+  text-align: center;
+  border: none;
+
+}
+
+.add-btn {
+  border: none;
+  padding: 10px 30px;
+  margin-left: -30px;
+  border-radius: 16px;
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add-btn :hover {
+  transform: scale(1.05);
+  background: linear-gradient(45deg, #ff4b2b, #ff416c);
+}
+
+.todo-container{
+  max-height: 250px;
+  overflow-y: auto;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.todo-container select {
+  padding: 10px 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  background-color: #ffffff20;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-container select option{
+  background-color: #153677;
+  color: white;
+  border-radius: 15px;
+}
+
+
+#task {
+  border-radius: 16px;
+  padding: 8px 16px;
 }
