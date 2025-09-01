@@ -20,7 +20,6 @@ taskForm.addEventListener("submit", function (e) {
   const li = document.createElement("li");
   li.classList.add("todo-item", `${priorityValue}-priority`);
 
-
   li.innerHTML = `
     <span>${taskText}</span>
     <button class="btn btn-sm btn-danger delete-btn">
