@@ -1,68 +1,39 @@
 const addBtn = document.getElementById("addBtn");
-const todoInput = document.getElementById("todoInput");
-const prioritySelect = document.getElementById("prioritySelect");
-const todoList = document.getElementById("todoList");
+const taskInput = document.getElementById("taskInput");
+const priority = document.getElementById("selectPriority");
+const taskList = document.getElementById("taskList");
 
-function addTask() {
-    const taskText = todoInput.value.trim();
-    const priority = prioritySelect.value;
+taskForm.addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    if (taskText === "") {
-        Swal.fire("Please enter a task.");
-        return;
-    }
+  const taskText = taskInput.value.trim();
+  const priorityValue = priority.value;
 
-    if (priority === "-1") {
-        Swal.fire("Please select a priority.");
-        return;
-    }
+  if (taskText === "" || priorityValue === "") {
+    Swal.fire({
+      title: "Error...",
+      text: "Please enter a task and select the Priority...",
+    });
+    return;
+  }
 
-    const taskItem = document.createElement("div");
-    taskItem.className = `todo-item alert d-flex justify-content-between align-items-center mt-3 
-                          ${getPriorityClass(priority)}`;
-    
-    taskItem.innerHTML = `
-        <span>${taskText}</span>
-        <button class="btn btn-sm btn-danger" onclick="deleteTask(this)">
-            <i class="fas fa-trash"></i>
-        </button>
-    `;
+  const li = document.createElement("li");
+  li.classList.add("todo-item", `${priorityValue}-priority`);
 
-    // Append to list
-    todoList.appendChild(taskItem);
 
-    // Clear input
-    todoInput.value = "";
-    prioritySelect.value = "-1";
+  li.innerHTML = `
+    <span>${taskText}</span>
+    <button class="btn btn-sm btn-danger delete-btn">
+      <i class="fa-solid fa-trash"></i>
+    </button>
+  `;
 
-    // Hide empty state if any task is added
-    const emptyState = document.querySelector(".empty-state");
-    if (emptyState) {
-        emptyState.remove();
-    }
-}
+  li.querySelector(".delete-btn").addEventListener("click", function () {
+    li.remove();
+  });
 
-function deleteTask(button) {
-    button.parentElement.remove();
+  taskList.appendChild(li);
 
-    // If no tasks left, show empty message
-    if (todoList.children.length === 0) {
-        todoList.innerHTML = `
-            <div class="empty-state">
-                <div class="empty-icon">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <p>No tasks yet. Add one above!</p>
-            </div>
-        `;
-    }
-}
-
-function getPriorityClass(priority) {
-    switch (priority) {
-        case "1": return "alert-danger";   // High
-        case "2": return "alert-warning";  // Medium
-        case "3": return "alert-success";  // Low
-        default: return "";
-    }
-}
+  taskInput.value = "";
+  priority.value = "";
+});
