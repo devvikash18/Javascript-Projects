@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Assets/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="./Assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="timer-section">
+            <h1 class="title fw-bold mb-0">Countdown Timer</h1>
+            <div class="input-container  gap-3 my-4">
+                <div class="input-area">
+                    <label for="hour" class="fw-bold text-light">Hour:</label>
+                    <input type="number" id="hour" placeholder="00" min="0">
+                </div>
+                <div class="input-area">
+                    <label for="min" class="fw-bold text-light">Minute:</label>
+                    <input type="number" id="min" placeholder="00" min="0" max="59">
+                </div>
+                <div class="input-area">
+                    <label for="sec" class="fw-bold text-light">Second:</label>
+                    <input type="number" id="sec" placeholder="00" min="0" max="59">
+                </div>
+            </div>
+            <h2 id="timer" class="fw-bold">00 : 00 : 00</h2>    
+
+            <div class="d-flex justify-content-center mt-3 gap-3">
+                <button class="btn btn-lg">Start</button>
+                <button class="btn btn-lg">Pouse</button>
+                <button class="btn btn-lg">Reset</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./Assets/js/bootstrap.bundle.js"></script>
+    <script src="./Assets/js/script.js"></script>
+</body>
+
+</html>
