@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./Assets/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./Assets/css/style.css">
 </head>
 
@@ -28,18 +28,20 @@
                     <input type="number" id="sec" placeholder="00" min="0" max="59">
                 </div>
             </div>
-            <h2 id="timer" class="fw-bold">00 : 00 : 00</h2>    
+            <h2 id="timer" class="fw-bold mb-4">00 : 00 : 00</h2>
 
-            <div class="d-flex justify-content-center mt-3 gap-3">
-                <button class="btn btn-lg">Start</button>
-                <button class="btn btn-lg">Pouse</button>
-                <button class="btn btn-lg">Reset</button>
+            <div class="group-btn   justify-content-center mt-3 text-center">
+                <button class="btn btn-lg " id="startBtn" title="Start"><i class="fa-solid fa-play"></i></button>
+                <button class="btn btn-lg" id="pauseBtn" title="Pause"><i class="fa-solid fa-pause"></i></button>
+                <button class="btn btn-lg" id="resetBtn" title="Reset"><i class="fa-solid fa-rotate-right"></i></button>
             </div>
+
 
         </div>
     </div>
 
     <script src="./Assets/js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./Assets/js/script.js"></script>
 </body>
 

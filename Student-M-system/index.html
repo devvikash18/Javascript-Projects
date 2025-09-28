@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Assets/css/booststrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./Assets/css/style.css">
+</head>
+
+<body>
+    <div class="header">
+        <h2 class="Title text-center fw-bold bg-success text-light py-4">
+            <i class="ri-graduation-cap-fill me-3"></i>
+            Student Management System
+        </h2>
+    </div>
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-lg-4 col-md-12">
+                <div class="form-section">
+                    <div class="card p-3 shadow-sm">
+                        <div class="header">
+                            <h4 class="mb-3 text-primary">Add New Student</h4>
+                        </div>
+                        <div id="studentForm">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" class="form-control my-1"
+                                    placeholder="Enter The Sudent Name...">
+                            </div>
+                            <div class="form-group">
+                                <label for="grid">GRID:</label>
+                                <input type="number" id="grid" class="form-control my-1" placeholder="Enter GRID...">
+                            </div>
+                            <div class="form-group mb-2">
+                                <label>Gender:</label>
+                                <div class="forGender d-flex mt-1 gap-3">
+                                    <div class="forMale">
+                                        <input type="radio" id="male" name="gender" value="Male">
+                                        <label for="male">Male</label>
+                                    </div>
+                                    <div class="forFemale">
+                                        <input type="radio" id="female" name="gender" value="Female">
+                                        <label for="female">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="mob">Phone No:</label>
+                                <input type="number" id="mob" class="form-control my-1"
+                                    placeholder="Enter Mobile Number...">
+                            </div>
+                            <div class="form-group mb-1">
+                                <label for="course">Course:</label>
+                                <select name="course" id="course" class="form-control my-1">
+                                    <option value="default" selected>Please select a course.</option>
+                                    <option value="Full Stack Development">Full Stack Development</option>
+                                    <option value="UI/UX">UI/UX</option>
+                                    <option value="iOS Development">AI/ML</option>
+                                    <option value="Android Development">App Development</option>
+                                    <option value="Game Development">Game Development</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="group-btn my-3">
+                            <button class="btn btn-primary me-2" id="addBtn">Add Student</button>
+                            <button class="btn btn-warning" id="clearBtn">Clear</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <div class="card student-list p-3 shadow-sm">
+                    <h4 class="mb-3 text-success fw-bold">Student List</h4>
+                    <p id="studentCount" class="fw-bold">0 Student Added Yet.</p>
+                    <div class="searchStd mb-3">
+                        <div class="search-icon d-flex">
+                            <input type="text" id="searchBox" class="form-control"
+                                placeholder="Search Student by Name or GRID...">
+                            <i class="ri-search-line "></i>
+                        </div>
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>GRID</th>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Phone</th>
+                                <th>Course</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentTable"></tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5" class="text-end fw-bold" id="studentTotal">Total Students: 0</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="./Assets/js/booststrap.boundle.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="./Assets/js/script.js"></script>
+</body>
+
+</html>

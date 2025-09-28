@@ -1,61 +1,124 @@
+let startBtn = document.getElementById("startBtn");
+let pauseBtn = document.getElementById("pauseBtn");
+let resetBtn = document.getElementById("resetBtn");
 
+let timer = document.getElementById("timer");
 let timerInterval;
+let endSound = new Audio("/Assets/audio/end-audio.mp3");
 let totalSeconds = 0;
-let isPaused = false;
+let isRunning = false;
 
-const tickSound = document.getElementById("tickSound");
-const alarmSound = document.getElementById("alarmSound");
-const quoteBox = document.getElementById("quoteBox");
 
-const quotes = [
-  "Time waits for no one ⏳",
-  "Every second counts 💡",
-  "Stay focused, stay sharp 🔥",
-  "Great things take time ⏰",
-  "Don’t watch the clock; do what it does. Keep going 💪"
-];
+let randomQuotes = [
+  "Believe you can and you're halfway there. ✨",
+  "Program testing can be used to show the presence of bugs, but never to show their absence!” — Edsger W. Dijkstra",
+  "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.” — Martin Fowler",
+  "“Clean code always looks like it was written by someone who cares.” — Robert C. Martin",
+  "Repetition is the root of all software evil.” — Martin Fowler",
+  "“Perfection is achieved not when there is nothing more to add, but rather when there is nothing more to take away.” — Antoine de Saint-Exupery",
+  "Push yourself, because no one else is going to do it for you. 🚀",
+  "“Code is like humor. When you have to explain it, it’s bad.” — Cory House",
+  "Great things never come from comfort zones. 🔥"
+]
 
-function getRandomQuote() {
-  let index = Math.floor(Math.random() * quotes.length);
-  return quotes[index];
+function formatedTime(totalSeconds) {
+  let hours = parseInt(totalSeconds / 3600);
+  totalSeconds = (totalSeconds % 3600);
+
+  let minutes = parseInt(totalSeconds / 60);
+  totalSeconds = (totalSeconds % 60);
+
+  let seconds = totalSeconds;
+
+  return `${hours.toString().padStart(2, "0")} :
+   ${minutes.toString().padStart(2, "0")} :
+    ${seconds.toString().padStart(2, "0")}`;
 }
 
-function timeFormat(totalSeconds){
+function startTimer() {
+  if (isRunning) return;
 
-    let hours = parseInt(totalSeconds / 3600);
-    totalSeconds = (totalSeconds % 3600);
+  if (totalSeconds <= 0) {
+    let hour = parseInt(document.getElementById("hour").value) || 0;
+    let minute = parseInt(document.getElementById("min").value) || 0;
+    let second = parseInt(document.getElementById("sec").value) || 0;
 
-    let minutes = parseInt(totalSeconds / 60);
-    totalSeconds = (totalSeconds % 60)
-    
-    let seconds = totalSeconds;
+    totalSeconds = hour * 3600 + minute * 60 + second;
+  }
 
-    return `${hours.toString().padStart(2, "0")} 
-    : ${minutes.toString().padStart(2, "0")} 
-    : ${seconds.toString().padStart(2, "0")}`
-}
+  if (totalSeconds <= 0) {
+    Swal.fire("⚠️ Please enter a valid time!");
+    return;
+  }
 
+  isRunning = true;
 
-function startTimer(){
-    let hour = document.getElementById("hour").value || 0;
-    let minute  = document.getElementById("min").value || 0;
-    let second = document.getElementById("sec").value || 0;
-    let timer = document.getElementById("timer")
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    timer.innerHTML = formatedTime(totalSeconds);
 
-    let totalSeconds = (hour * 3600) + (minute  * 60) + (second * 1);
+    if (totalSeconds <= 0) {
+      clearInterval(timerInterval);
+      isRunning = false;
 
-    let timerInterval = setInterval( () => {
-        if(totalSeconds == 0){
-            clearInterval(timerInterval)
+      endSound.play();
+
+      let randomIndex = Math.floor(Math.random() * randomQuotes.length);
+      let randomQuote = randomQuotes[randomIndex];
+
+      Swal.fire({
+        title: "⏰ Time's Up!",
+        html: `
+    <div style="
+      font-size:16px; 
+      font-style:italic; 
+      padding:12px; 
+      border-radius:10px; 
+      background:rgba(255,255,255,0.2); 
+      backdrop-filter: blur(10px); 
+      color:#222;">
+      “${randomQuote}”
+    </div>
+  `,
+        background: "rgba(255,255,255,0.25)",
+        backdrop: `
+    rgba(0,0,0,0.4)
+  `,
+        confirmButtonText: "Okay",
+        confirmButtonColor: "#4CAF50",
+        customClass: {
+          popup: "small-popup"
         }
-        timer.innerHTML = timeFormat(totalSeconds);
-        totalSeconds--;
-
-    },1000)
-
-
+      });
+      return;
+    }
+    totalSeconds--;
+  }, 1000);
 }
 
+function pauseTimer() {
+  if (isRunning) {
+    clearInterval(timerInterval);
+    isRunning = false;
+    pauseBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
+    pauseBtn.title = "Resume"
 
-let timerBtn = document.getElementById("startBtn");
-timerBtn.addEventListener("click", startTimer)
+  } else {
+    startTimer();
+    pauseBtn.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+  }
+}
+
+function resetTimer() {
+  clearInterval(timerInterval);
+  isRunning = false;
+  totalSeconds = 0;
+  timer.textContent = "00 : 00 : 00";
+
+  endSound.pause();
+  endSound.currentTime = 0;
+}
+
+startBtn.addEventListener("click", startTimer);
+pauseBtn.addEventListener("click", pauseTimer);
+resetBtn.addEventListener("click", resetTimer);
