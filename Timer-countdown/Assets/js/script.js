@@ -4,7 +4,7 @@ let resetBtn = document.getElementById("resetBtn");
 
 let timer = document.getElementById("timer");
 let timerInterval;
-let endSound = new Audio('./Assets/audio/end-audio-mp3');
+let endSound = new Audio('./Assets/audio/end-audio.mp3');
 let totalSeconds = 0;
 let isRunning = false;
 
