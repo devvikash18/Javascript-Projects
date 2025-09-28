@@ -4,7 +4,7 @@ let resetBtn = document.getElementById("resetBtn");
 
 let timer = document.getElementById("timer");
 let timerInterval;
-let endSound = new Audio("/Assets/audio/end-audio.mp3");
+let endSound = new Audio('./Assets/audio/end-audio-mp3');
 let totalSeconds = 0;
 let isRunning = false;
 
@@ -70,10 +70,10 @@ function startTimer() {
         title: "⏰ Time's Up!",
         html: `
     <div style="
-      font-size:16px; 
+      font-size:16px;
       font-style:italic; 
       padding:12px; 
-      border-radius:10px; 
+      border-radius:12px; 
       background:rgba(255,255,255,0.2); 
       backdrop-filter: blur(10px); 
       color:#222;">
