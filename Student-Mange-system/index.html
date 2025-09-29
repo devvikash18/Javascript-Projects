@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./Assets/css/booststrap.min.css">
+    <link rel="stylesheet" href="./Assets/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="./Assets/css/style.css">
 </head>
@@ -57,14 +57,12 @@
                                 <label for="course">Course:</label>
                                 <select name="course" id="course" class="form-control my-1">
                                     <option value="default" selected>Please select a course.</option>
-                                    <option value="Full Stack Development">Full Stack Development</option>
+                                    <option value="Full Stack Development">Full Stack Dev</option>
                                     <option value="UI/UX">UI/UX</option>
-                                    <option value="iOS Development">AI/ML</option>
-                                    <option value="Android Development">App Development</option>
+                                    <option value="AI/ML">AI/ML</option>
                                     <option value="Game Development">Game Development</option>
                                 </select>
                             </div>
-
                         </div>
                         <div class="group-btn my-3">
                             <button class="btn btn-primary me-2" id="addBtn">Add Student</button>
@@ -88,6 +86,7 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
+                                <th>Sr.No.</th>
                                 <th>GRID</th>
                                 <th>Name</th>
                                 <th>Gender</th>
@@ -98,7 +97,7 @@
                         <tbody id="studentTable"></tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="5" class="text-end fw-bold" id="studentTotal">Total Students: 0</td>
+                                <td colspan="6" class="text-end fw-bold" id="studentTotal">Total Students: 0</td>
                             </tr>
                         </tfoot>
                     </table>
@@ -111,10 +110,8 @@
 
 
 
-
-
-    <script src="./Assets/js/booststrap.boundle.js"></script>
-    <script src="sweetalert2.all.min.js"></script>
+    <script src="./Assets/js/bootstrap.boundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./Assets/js/script.js"></script>
 </body>
 

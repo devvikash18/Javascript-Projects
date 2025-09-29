@@ -104,26 +104,51 @@ body {
 }
 
 .table {
-    border: 2px solid #198754; /* Bootstrap green */
-    background: #f9fffb;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.table th {
-    background: #198754;
+.table thead {
+    background: linear-gradient(90deg, #28a745, #218838);
     color: white;
-    text-align: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.table td {
-    text-align: center;
-    padding: 10px;
+.table tbody tr {
+    transition: background-color 0.2s ease-in-out;
 }
 
 .table tbody tr:hover {
-    background: #e8f9f0;
+    background-color: #f1fdf4;
 }
+
+.table td, .table th {
+    vertical-align: middle;
+    padding: 12px;
+    font-size: 15px;
+}
+
+.table button {
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
+.table button i {
+    font-size: 16px;
+}
+
+.table tfoot td {
+    background-color: #e8f9ee;
+    font-weight: bold;
+    font-size: 16px;
+    color: #155724;
+    text-align: right;
+    padding-right: 20px;
+}
+
 
 #studentTotal {
     font-weight: bold;

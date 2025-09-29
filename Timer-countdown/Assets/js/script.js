@@ -101,7 +101,6 @@ function pauseTimer() {
     clearInterval(timerInterval);
     isRunning = false;
     pauseBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
-    pauseBtn.title = "Resume"
 
   } else {
     startTimer();
