@@ -7,13 +7,22 @@
 }
 
 body {
-    
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', 'Montserrat', sans-serif;
+    background: #f8f9fa;
 }
 
 .Title {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     font-size: 1.8rem;
+    text-align: center;
+    padding: 20px 0;
+}
+
+@media(max-width: 576px) {
+    .Title {
+        font-size: 1.5rem;
+        padding: 15px 0;
+    }
 }
 
 .card {
@@ -24,7 +33,13 @@ body {
     margin-top: 30px;
 }
 
-.form-group label {
+@media(max-width: 576px) {
+    .card {
+        padding: 15px;
+    }
+}
+
+.student-field label {
     font-weight: 600;
     color: #555;
 }
@@ -33,6 +48,7 @@ body {
     border-radius: 10px;
     border: 1px solid #ced4da;
     transition: 0.3s;
+    width: 100%;
 }
 
 .form-control:focus {
@@ -56,6 +72,8 @@ body {
     padding: 7px 17px;
     border-radius: 12px;
     border: 2px solid #ced4da;
+    display: flex;
+    align-items: center;
 }
 
 .radio-label {
@@ -70,43 +88,43 @@ body {
 }
 
 .group-btn .btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-@media(max-width: 576px) {
-
-    .form-group input,
-    .form-group select {
-        width: 100%;
-    }
-
-    .radio-group {
-        flex-direction: column;
-    }
 }
 
 .search-icon {
     position: relative;
+    width: 100%;
 }
 
 .search-icon input {
+    width: 100%;
     padding-right: 2.5rem;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
 }
 
 .search-icon i {
     position: absolute;
-    right: 10px; 
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: #888; 
-    pointer-events: none; 
+    color: #888;
+    pointer-events: none;
+    font-size: 16px;
+}
+
+
+.table-responsive {
+    overflow-x: auto;
 }
 
 .table {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 .table thead {
@@ -125,7 +143,8 @@ body {
     background-color: #f1fdf4;
 }
 
-.table td, .table th {
+.table td,
+.table th {
     vertical-align: middle;
     padding: 12px;
     font-size: 15px;
@@ -134,21 +153,39 @@ body {
 .table button {
     border-radius: 6px;
     padding: 4px 8px;
+    font-size: 14px;
 }
 
 .table button i {
     font-size: 16px;
 }
 
-.table tfoot td {
-    background-color: #e8f9ee;
-    font-weight: bold;
-    font-size: 16px;
-    color: #155724;
-    text-align: right;
-    padding-right: 20px;
+.student-name {
+    font-weight: 600;
+    color: #0d6efd;
 }
 
+.student-grid {
+    font-weight: 600;
+    color: #198754;
+}
+
+.student-gender {
+    font-weight: 600;
+}
+
+.student-phone {
+    font-style: italic;
+    color: #6c757d;
+}
+
+.student-course {
+    background: #e9f7ef;
+    border-radius: 6px;
+    padding: 3px 6px;
+    text-align: center;
+    font-weight: 500;
+}
 
 #studentTotal {
     font-weight: bold;
@@ -157,4 +194,42 @@ body {
     padding: 10px;
     background: #d4edda;
     color: #155724;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+@media(max-width: 768px) {
+    .radio-group {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .group-btn {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media(max-width: 576px) {
+
+    .form-control,
+    .form-select {
+        width: 100%;
+    }
+
+    .search-icon {
+        margin-bottom: 10px;
+    }
+
+    .table th,
+    .table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .table button {
+        padding: 3px 6px;
+        font-size: 13px;
+    }
 }

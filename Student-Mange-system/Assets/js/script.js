@@ -2,32 +2,24 @@
 let students = [];
 let editIndex = -1;
 
-
-let studentName = document.getElementById("name");
-let studentGRID = document.getElementById("grid");
-let studentGender = document.querySelectorAll('input[name="gender"]');
-let studentNum = document.getElementById("mob");
-let studentCourse = document.getElementById("course");
-let addBtn = document.getElementById("addBtn");
-let clearBtn = document.getElementById("clearBtn");
-let studentTable = document.getElementById("studentTable");
-let searchBox = document.getElementById("searchBox");
-let studentTotal = document.getElementById("studentTotal");
-
-let storedStudents = localStorage.getItem("studentsData");
-if (storedStudents) {
-    students = JSON.parse(storedStudents);
-    renderTable();
-}
+const studentName = document.getElementById("name");
+const studentGRID = document.getElementById("grid");
+const studentNum = document.getElementById("mob");
+const studentCourse = document.getElementById("course");
+const addBtn = document.getElementById("addBtn");
+const clearBtn = document.getElementById("clearBtn");
+const studentTable = document.getElementById("studentTable");
+const searchBox = document.getElementById("searchBox");
+const studentTotal = document.getElementById("studentTotal");
 
 function addStudent() {
-    let name = studentName.value.trim();
-    let grid = studentGRID.value.trim();
-    let gender = document.querySelector('input[name="gender"]:checked');
-    let phoneNo = studentNum.value.trim();
-    let course = studentCourse.value.trim();
+    const name = studentName.value.trim();
+    const grid = studentGRID.value.trim();
+    const genderInput = document.querySelector('input[name="gender"]:checked');
+    const phoneNo = studentNum.value.trim();
+    const course = studentCourse.value.trim();
 
-    if (name == "" || grid == "" || !gender || phoneNo == "" || course == "" || course === "default") {
+    if (!name || !grid || !genderInput || !phoneNo || !course || course === "default") {
         Swal.fire("Empty Field", "Please fill all the fields correctly.", "warning");
         return;
     }
@@ -38,16 +30,15 @@ function addStudent() {
             return;
         }
 
-        students.push({ grid, name, gender: gender.value, phoneNo, course });
+        students.push({ grid, name, gender: genderInput.value, phoneNo, course });
         Swal.fire("Success!", "Student Added Successfully.", "success");
     } else {
-        students[editIndex] = { grid, name, gender: gender.value, phoneNo, course };
+        students[editIndex] = { grid, name, gender: genderInput.value, phoneNo, course };
         editIndex = -1;
         addBtn.textContent = "Add Student";
         studentGRID.removeAttribute("readonly");
         Swal.fire("Updated!", "Student Details Updated.", "success");
     }
-    localStorage.setItem("studentsData", JSON.stringify(students));
 
     renderTable();
     clearForm();
@@ -58,9 +49,9 @@ function clearForm() {
     studentGRID.value = "";
     studentNum.value = "";
     studentCourse.value = "default";
-    document.querySelectorAll('input[name="gender"]').forEach(el => el.checked = false);
+    document.querySelectorAll('input[name="gender"]').forEach(el => (el.checked = false));
 
-     editIndex = -1;
+    editIndex = -1;
     addBtn.textContent = "Add Student";
     studentGRID.removeAttribute("readonly");
 }
@@ -72,11 +63,10 @@ function deleteStudent(index) {
         icon: "warning",
         showCancelButton: true,
         confirmButtonText: "Yes, Delete",
-        cancelButtonText: "Cancel"
-    }).then((result) => {
+        cancelButtonText: "Cancel",
+    }).then(result => {
         if (result.isConfirmed) {
             students.splice(index, 1);
-            localStorage.setItem("studentsData", JSON.stringify(students));
             renderTable();
             Swal.fire("Deleted!", "Student has been deleted.", "success");
         }
@@ -84,56 +74,61 @@ function deleteStudent(index) {
 }
 
 function editStudent(index) {
-    let stu = students[index];
+    const stu = students[index];
     studentName.value = stu.name;
     studentGRID.value = stu.grid;
     studentNum.value = stu.phoneNo;
     studentCourse.value = stu.course;
+
     document.querySelectorAll('input[name="gender"]').forEach(el => {
-        el.checked = (el.value === stu.gender);
+        el.checked = el.value === stu.gender;
     });
 
     editIndex = index;
     addBtn.textContent = "Update Student";
-    studentGRID.setAttribute("readonly", true); 
+    studentGRID.setAttribute("readonly", true);
 }
 
 function renderTable(filteredStudents = students) {
     studentTable.innerHTML = "";
 
     if (filteredStudents.length === 0) {
-        studentTable.innerHTML = `<tr><td colspan="6" class="text-center text-danger">No students found!</td></tr>`;
+        studentTable.innerHTML =
+            `<tr><td colspan="6" class="text-center text-danger">No students found!</td></tr>`;
     } else {
         filteredStudents.forEach((stu, index) => {
             studentTable.innerHTML += `
-                <tr>
-                    <td>${index + 1}</td>
-                    <td>${stu.grid}</td>
-                    <td>${stu.name}</td>
-                    <td>${stu.gender}</td>
-                    <td>${stu.phoneNo}</td>
-                    <td>${stu.course}</td>
-                </tr>
-            `;
+        <tr>
+         <td class= "student-name">${stu.name}</td>
+          <td class= "student-grid">${stu.grid}</td>
+          <td class= "student-phone">${stu.phoneNo}</td>
+          <td class= "student-gender">${stu.gender}</td>
+          <td class="student-course">
+              <span class="badge bg-success">${stu.course}</span>
+          </td>
+
+          <td>
+            <button class="btn btn-sm btn-warning me-2" onclick="editStudent(${index})">
+              <i class="fa-solid fa-pen-to-square"></i> Edit
+            </button>
+            <button class="btn btn-sm btn-danger" onclick="deleteStudent(${index})">
+              <i class="fa-solid fa-trash"></i> Delete
+            </button>
+          </td>
+        </tr>
+      `;
         });
     }
 
     studentTotal.textContent = `Total Students: ${students.length}`;
-
-    let studentCount = document.getElementById("studentCount");
-    if (students.length > 0) {
-        studentCount.style.display = "none";
-    } else {
-        studentCount.style.display = "block";
-        studentCount.textContent = "0 Student Added Yet.";
-    }
 }
 
 function searchStudents() {
-    let keyword = searchBox.value.toLowerCase();
-    let filtered = students.filter(stu =>
-        stu.name.toLowerCase().includes(keyword) ||
-        stu.grid.toLowerCase().includes(keyword)
+    const keyword = searchBox.value.toLowerCase();
+    const filtered = students.filter(
+        stu =>
+            stu.name.toLowerCase().includes(keyword) ||
+            stu.grid.toLowerCase().includes(keyword)
     );
     renderTable(filtered);
 }
