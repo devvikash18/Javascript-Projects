@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COVID-19 Dashboard</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./Assets/css/style.css" />
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- Header Section -->
+    <div class="dashboard-header mt-4 mb-4">
+      <h1><i class="ri-virus-line me-2 virus"></i>COVID-19 Statistics in India</h1>
+      <p class="text-center mb-4">Real-time COVID-19 statistics for every Indian state. Search below to view total
+        cases, recoveries, and deaths.</p>
+    </div>
+
+    <!-- Search Section -->
+    <div class="state-search-area">
+      <div class="d-flex justify-content-center mb-4">
+        <input type="text" id="inputStateName" class="form-control w-50 me-2 text-center"
+          placeholder="Enter Indian State Name">
+        <button id="btnSearchState" class="btn btn-success">
+          <i class="ri-search-line"></i> Search
+        </button>
+      </div>
+    </div>
+
+    <!-- Loader -->
+    <div id="loader" class="text-center my-3" style="display:none;">
+      <div class="spinner-border text-success" role="status"></div>
+    </div>
+
+    <!-- No Data Message -->
+    <p id="msgNoData" class="text-center text-danger fw-bold" style="display:none;">
+      No data found for this state.
+    </p>
+
+   <!-- Combined Statistics Card -->
+<div id="combinedStatsCard" class="combined-stats-card mx-auto my-4 p-4 shadow rounded" style="display:none;">
+  <h2 class="card-title text-center mb-4">COVID-19 Stats</h2>
+  <div class="combined-stats-grid d-flex justify-content-around flex-wrap text-center">
+
+    <!-- Total Cases  -->
+    <div class="mini-stat-card p-3 shadow rounded m-2">
+      <div class="stat-icon "><i class="ri-bar-chart-2-fill bar-icon"></i></div>
+      <div class="stat-number" id="statTotalCases">-</div>
+      <div class="stat-label">Total Cases</div>
+    </div>
+
+    <!-- Recovered  -->
+    <div class="mini-stat-card p-3 shadow rounded m-2">
+      <div class="stat-icon"><i class="ri-heart-3-fill heart-icon"></i></div>
+      <div class="stat-number" id="statRecovered">-</div>
+      <div class="stat-label">Recovered</div>
+    </div>
+
+    <!-- Deaths -->
+    <div class="mini-stat-card p-3 shadow rounded m-2">
+      <div class="stat-icon"><i class="ri-skull-2-fill skull-icon"></i></div>
+      <div class="stat-number" id="statDeaths">-</div>
+      <div class="stat-label">Deaths</div>
+    </div>
+
+  </div>
+</div>
+
+
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="./assets/js/bootstrap.bundle.js"></script>
+
+    <!-- Custom JS -->
+    <script src="./Assets/js/script.js"></script>
+</body>
+
+</html>
