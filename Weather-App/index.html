@@ -2,59 +2,79 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+
+    <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="./Assets/css/booststrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./Assets/css/style.css">
+
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./Assets/css/style.css" />
 </head>
 
-<body>
-    <div class="weather-section">
-        <h2 class="city fs-2  fw-bold mb-0">Surat</h2>
-        <p class="date mb-3 fs-6 fw-bold">30 Sep 2025</p>
-        <div class="search-city">
-            <input type="text" placeholder="Enter City Name.." spellcheck="false">
-            <button id="searchBtn" class="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-        <div class="weather d-flex my-3">
-            <img src="./Assets/images/weather-icon.svg" alt="weather-icon" class="ms-3" width="120px" height="120px">
-            <div class="stats mt-2 ms-3 mb">
-                <h1 class="temp d-inline-block fw-bold mb-0">28</h1><span class="fs-1 ms-1 fw-bold">°C</span>
-                <h2 class="fs-3">Party Cloudy</h2>
-            </div>
-        </div>
-        <div class="max-min-temp gap-3 ">
-            <span class="max-temp ">High: 29°C ↗</span>
-            <span class="min-tmp ">Low: 24°C ↘</span>
-        </div>
-        <div class="details">
-            <div class="row">
-                <div class="col-4">
-                    <div class="humidity">
-                        <p class="my-2" id="">Humidity </p>
-                        <p class="fw-semibold">77%</p>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="wind">
-                        <p class="my-2">Wind</p>
-                        <p class="fw-semibold">23 km/h</p>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="visibility">
-                        <p class="my-2">Visibility</p>
-                        <p class="fw-semibold">4.02 km</p>
-                    </div>
-                </div>
-            </div>
+<body class="bg-light">
 
+    <div class="container py-5">
+        <h2 class="text-center mb-4 fw-bold">🌤 Weather Forecast</h2>
+
+        <!-- Search Section -->
+        <div class="search-container text-center mb-4">
+            <input id="cityInput" type="text" class="search-input" placeholder="Enter the City name...">
+            <button id="searchBtn" class="search-btn"><i class="ri-search-line"></i></button>
         </div>
+
+        <!-- Weather Card -->
+        <div class="row justify-content-center">
+            <div class="col-md-4 col-sm-8">
+                <div class="weather-card compact-card shadow-sm p-4" id="infoCard">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h3 class="city-name fw-bold mb-0" id="cityName">City Name</h3>
+                        <i class="ri-map-pin-line fs-4 text-primary"></i>
+                    </div>
+
+                    <h1 class="temperature fw-semibold text-primary mb-3" id="temp">--°C</h1>
+
+                    <!-- Stats -->
+                    <div class="weather-stats">
+                        <div class="stat-item d-flex justify-content-between align-items-center mb-2">
+                            <div><i class="ri-windy-line me-2 text-info"></i> Wind</div>
+                            <span class="stat-value" id="statValue">-- km/h</span>
+                        </div>
+
+                        <div class="stat-item d-flex justify-content-between align-items-center mb-2">
+                            <div><i class="ri-drop-line me-2 text-primary"></i> Humidity</div>
+                            <span class="stat-value" id="statValue">--%</span>
+                        </div>
+
+                        <div class="stat-item d-flex justify-content-between align-items-center mb-2">
+                            <div><i class="ri-eye-line me-2 text-warning"></i> Visibility</div>
+                            <span class="stat-value" id="statValue">-- km</span>
+                        </div>
+
+                        <div class="stat-item d-flex justify-content-between align-items-center">
+                            <div><i class="ri-bar-chart-line me-2 text-danger"></i> Air Pressure</div>
+                            <span class="stat-value" id="statValue">-- hPa</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </div>
-    <script src="./Assets/js/booststrap.boundle.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="./Assets/js/booststrap.bundle.js"></script>
+
+    <!-- Bootstrap JS -->
     <script src="./Assets/js/script.js"></script>
+
+
 </body>
 
 </html>
