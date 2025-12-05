@@ -1,0 +1,103 @@
+
+body {
+    background-color: #121212;
+    color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container{
+    max-width: 998px;
+    margin: auto;
+}
+
+.dashboard-header h1 {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.dashboard-header p {
+    color: #cccccc;
+    font-size: 1rem;
+}
+
+.state-search-area input.form-control {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    border: 1px solid #333;
+}
+
+.state-search-area input::placeholder {
+    color: #888;
+}
+
+.state-search-area .btn-success {
+    background-color: #28a745;
+    border: none;
+    transition: 0.3s;
+}
+
+.state-search-area .btn-success:hover {
+    background-color: #1e7e34;
+}
+
+#loaderSpinner .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border-width: 0.3rem;
+}
+
+.combined-stats-card {
+    max-width: 900px;
+    background: linear-gradient(145deg, #1f1f1f, #2c2c2c);
+    color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+.combined-stats-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.mini-stat-card {
+    flex: 1 1 200px;
+    background-color: #2a2a2a;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.mini-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+}
+
+.stat-icon i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.bar-icon{
+    color: rgb(219, 228, 88);
+}
+.heart-icon{
+    color: #28a745;
+}
+.skull-icon{
+    color: rgb(228, 59, 59);
+}
+
+
+.stat-number {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #bbbbbb;
+}
+
