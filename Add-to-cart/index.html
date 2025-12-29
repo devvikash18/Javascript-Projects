@@ -5,50 +5,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Karla -->
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Lora -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="./Assets/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="./Assets/css/style.css">
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo me-5">
-                <a href="./index.html" class="web-logo text-white fw-bold">
-                    <img src="./assets/images/web-logo.svg" alt="">
-                </a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm py-3">
+        <div class="container nav-container">
+            <div class="collapse navbar-collapse order-1 order-lg-0" id="navbarLeft">
+                <ul class="navbar-nav nav-menu text-uppercase">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item position-relative">
+                        <a class="nav-link" href="#">
+                            Shop
+                            <span class="badge bg-danger position-absolute top-0 start-100 translate-middle">
+                                Sale
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                </ul>
             </div>
-            <div class="search-bar d-flex" id="searchBar">
-                <input class="form-control w-75" type="search" placeholder="Search products...." aria-label="Search" />
-                <button class="search-btn" type="submit">Search</button>
+
+            <a class="navbar-brand mx-auto" href="#">
+                <img src="./Assets/images/logo-basel.svg" alt="" width="196px" height="39">
+            </a>
+
+            <div class="collapse navbar-collapse justify-content-end order-2" id="navbarRight">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login / Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="ri-search-line"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="#">
+                            <i class="ri-heart-line"></i>
+                            <span class="badge bg-success position-absolute top-0 start-100 translate-middle">0</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="#">
+                            <i class="ri-shopping-bag-line"></i>
+                            <span class="ms-1">0 / $0.00</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="header-aside">
-                <button class="btn btn-primary mx-2 position-relative">
-                    <i class="ri-shopping-cart-line"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        0
-                        <span class="visually-hidden">unread messages</span>
-                    </span>
-                </button>
-            </div>
+
+            <button class="navbar-toggler order-3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarLeft, #navbarRight">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
         </div>
     </nav>
-    <section>
-        <div class="container">
+    <section class="hero-section">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">MAN BAGS</h1>
+                    <h2 class="hero-subtitle">New Men's Collection</h2>
+                    <a href="#" class="btn hero-btn">SHOP NOW</a>
+                </div>
+            </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-3">
-                    <div class="product">
-                        <img src="" alt="">
+    </section>
+
+    <section class="features">
+        <div class="container my-5">
+            <div class="fe-titles mb-5">
+                <p class="text-center text-uppercase fs-6 ls-2">Made the hard way</p>
+                <h3 class="text-center text-uppercase ls-2 text-black">Featured Categories</h3>
+                <p class="text-center fs-6 text-black my-3 fst-italic fs-5">Basel & Co. is a powerful eCommerce theme
+                    for Shopify. Visit
+                    <br> our shop page to see all main features for <a href="">Your Store</a>
+                </p>
+            </div>
+
+            <div class="row g-4" id="product-row">
+                <div class="col-6 col-sm-4 col-md-3">
+                    <div class="product-grid-item">
+                        <div class="product-image">
+                            <img src="./Assets/images/bag-1.webp" class="img-fluid" alt="">
+                        </div>
+                        <div class="product-element">
+                            <p class="product-title fw-semibold">Vintage cinch backpack</p>
+                            <p>Price</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <script src="./Assets/js/bootstrap.boundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <script src="./Assets/js/bootstrap.bundle.min.js"></script>
     <script src="./Assets/js/script.js"></script>
 </body>
 
