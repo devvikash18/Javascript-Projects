@@ -34,18 +34,18 @@ let productRow = document.getElementById("product-row")
 products.forEach((pro, idx) => {
   productRow.innerHTML += `
     <div class="col-6 col-sm-4 col-md-3">
-        <div class="product-grid-item">
-            <div class="product-image">
-                <img src="./Assets/images/bag-2.webp" class="img-fluid" alt="">
-            </div>
-            <div class="product-element">
-                <h5 class="product-title fw-semibold">${pro.name}</h5>
-                <p>$ ${pro.price}</p>
-                <button class="btn btn-primary">
-                      add to cart <i class="ri-shopping-cart-2-line"></i>
-                </button>
-            </div>
-        </div>
-    </div>
+                    <div class="product-grid-item">
+                        <div class="product-image">
+                            <img src="./Assets/images/bag-1.webp" class="img-fluid" alt="">
+                        </div>
+                        <div class="product-element text-start mx-3">
+                            <p class="product-title fw-semibold"> ${pro.name}</p>
+                            <p>$${pro.price}</p>
+                            <button class="btn btn-primary">
+                                add to cart <i class="ri-shopping-cart-2-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
   `
 });
