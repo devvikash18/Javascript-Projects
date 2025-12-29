@@ -1,30 +1,30 @@
 const products = [
   {
-    id: 1 ,
+    id: 1,
     name: "Vintage cinch backpack",
     image: "./images/bag-1.webp",
-    price: 560,
+    price: 560.00,
     colors: ["#b87333", "#6a8f5f"]
   },
   {
-    id: 2 ,
+    id: 2,
     name: "Nombined strapped backpack",
     image: "./images/bag-2.webp",
-    price: 54,
+    price: 54.00,
     colors: ["#6a8f5f", "#333", "#b87333"]
   },
   {
-    id: 3 ,
+    id: 3,
     name: "Lintage cinch backpack",
     image: "./images/bag-3.jpg",
-    price: 447,
+    price: 447.00,
     colors: []
   },
   {
-    id: 4 ,
+    id: 4,
     name: "Jacquard ethnic backpack",
     image: "./images/bag-4.webp",
-    price: 260,
+    price: 260.00,
     colors: ["#000", "#fff", "#b87333"]
   }
 ];
@@ -39,8 +39,11 @@ products.forEach((pro, idx) => {
                 <img src="./Assets/images/bag-2.webp" class="img-fluid" alt="">
             </div>
             <div class="product-element">
-                <h5 class="product-title fw-semibold">${products.name}</h5>
-                <p>${products.price}</p>
+                <h5 class="product-title fw-semibold">${pro.name}</h5>
+                <p>$ ${pro.price}</p>
+                <button class="btn btn-primary">
+                      add to cart <i class="ri-shopping-cart-2-line"></i>
+                </button>
             </div>
         </div>
     </div>
