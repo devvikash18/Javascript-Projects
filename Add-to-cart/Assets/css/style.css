@@ -171,3 +171,9 @@ body {
 .cart-details{
   margin-top: 90px;
 }
+
+.quantity{
+  justify-content: center;
+    white-space: nowrap;
+    margin-right: 15px;
+}
