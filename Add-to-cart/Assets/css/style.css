@@ -178,6 +178,11 @@ body {
   margin-right: 15px;
 }
 
+.quantity input {
+  text-align: center;
+  height: 30px;
+}
+
 .quantity .minus .plus {
   border: 1px solid #e0e0e0;
   color: #848484;
