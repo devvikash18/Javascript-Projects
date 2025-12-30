@@ -41,7 +41,17 @@ function addToCart(productId){
     return pro.id === productId;
   })
 
-  cart.push(product)
+  let idx = cart.findIndex( (pro) => {
+    return pro.id == productId;
+  })
+
+  if(idx == -1){
+    product.quantity = 1;
+    cart.push(product)
+  }else{
+    cart[idx].quantity ++ ;
+  }
+
   localStorage.setItem("cart", JSON.stringify (cart))
   updateCounter();
   
