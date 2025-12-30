@@ -4,7 +4,7 @@ body {
   color: #4c4c4c;
 }
 
-:root{
+:root {
   --font-karla-family: ;
   --primary-color: ;
   --secondary-color: ;
@@ -30,12 +30,12 @@ body {
 .hero-section {
   position: relative;
   height: 90vh;
- background: url("../images/hero-bag.jpg") no-repeat;
+  background: url("../images/hero-bag.jpg") no-repeat;
   display: flex;
   align-items: center;
 }
 
-.hero-banner{
+.hero-banner {
   background-position: top;
   background-repeat: no-repeat;
   background-clip: cover;
@@ -56,7 +56,7 @@ body {
 }
 
 .hero-subtitle {
-  
+
   font-size: 73px;
   color: #fff;
   margin-bottom: 30px;
@@ -77,7 +77,7 @@ body {
   color: #fff;
 }
 
-.features{
+.features {
   width: 100%;
 }
 
@@ -163,17 +163,26 @@ body {
   object-fit: cover;
 }
 
-.product-title{
-   font-size: 18px;
-   color: #262424;
+.product-title {
+  font-size: 18px;
+  color: #262424;
 }
 
-.cart-details{
+.cart-details {
   margin-top: 90px;
 }
 
-.quantity{
+.quantity {
   justify-content: center;
-    white-space: nowrap;
-    margin-right: 15px;
+  white-space: nowrap;
+  margin-right: 15px;
+}
+
+.quantity .minus .plus {
+  border: 1px solid #e0e0e0;
+  color: #848484;
+  width: 20px;
+  background-color: #f9f9f9;
+  transition: .2s;
+  -webkit-transition: .2s
 }
