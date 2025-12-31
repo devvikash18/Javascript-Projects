@@ -4,28 +4,28 @@ const products = [
     id: 1,
     name: "Vintage cinch backpack",
     image: "Assets/images/bag-1.webp",
-    desc: "TEMPUS CONSECTETUR Ac dis vestibulum ut primis eleifend...",
+    desc: "TEMPUS CONSECTETUR Ac dis vestibulum ut primis eleifend at neque at ornare mus nostra non senectus magna natoque porta scelerisque molestie taciti lobortis torquent ullamcorper a ullamcorper. Hac suspendisse varius ut...",
     price: 560
   },
   {
     id: 2,
     name: "Nombined strapped backpack",
     image: "Assets/images/bag-2.webp",
-    desc: "TEMPUS CONSECTETUR Ac dis vestibulum ut primis eleifend...",
+    desc: "TEMPUS CONSECTETUR Ac dis vestibulum ut primis eleifend at neque at ornare mus nostra non senectus magna natoque porta scelerisque molestie taciti lobortis torquent ullamcorper a ullamcorper. Hac suspendisse varius ut...",
     price: 154
   },
   {
     id: 3,
     name: "Lintage cinch backpack",
     image: "Assets/images/bag-3.jpg",
-    desc: "PRODUCT DESCRIPTION Aenean enim nisl volutpat fusce...",
+    desc: "PRODUCT DESCRIPTION Aenean enim nisl volutpat fusce commodo dui hac in a vestibulum diam convallis dis parturient condimentum massa ac sagittis sed dapibus ullamcorper blandit parturient arcu urna cursus suscipit diam...",
     price: 447
   },
   {
     id: 4,
     name: "Jacquard ethnic backpack",
     image: "Assets/images/bag-4.webp",
-    desc: "PARTURIENT ADIPISCING Blandit parturient adipiscing...",
+    desc: "PARTURIENT ADIPISCING Blandit parturient adipiscing faucibus fringilla vestibulum ultrices integer dolor parturient parturient at porta platea inceptos. Habitant dui ut fringilla eleifend tincidunt scelerisque porta a tortor adipiscing ullamcorper etiam imperdiet...",
     price: 260
   }
 ];
