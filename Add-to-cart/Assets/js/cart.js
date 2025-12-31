@@ -10,20 +10,20 @@ document.addEventListener("DOMContentLoaded", function (){
         cartContainer.innerHTML += `
         <div class="row ">
                 <div class="col-4">
-                    <div>
-                        <img src="${prdct.image}" alt="" class = "image-fluid">
+                    <div class = mb-3>
+                        <img src="./Assets/images/bag-1.webp" alt="">
                     </div>
                 </div>
                 <div class="col-8">
                     <div>
                         <h2 class="product-name fs-1 text-dark">${prdct.name}</h2>
-                        <p class="price fs-4 text-success fw-semibold">$154.00</p>
                         <p class="subtitle">TEMPUS CONSECTETUR Ac dis vestibulum ut primis eleifend at neque at ornare mus<br> nostra non senectus magna natoque porta scelerisque molestie taciti lobortis <br> torquent ullamcorper a ullamcorper. Hac suspendisse varius ut...</p>
                         <div class="quantity">
                             <input type="button" value="-" class="minus">
                             <input type="number" step="1" min="1" max="999" name="quantity" value="1" size="4" class="text-center fw-bold mb-0">
                             <input type="button" value="+" class="minus">
                         </div>
+                        <p class="price fs-5 text-success my-2">$ ${prdct.price}.00</p>
 
                     </div>
                 </div>
