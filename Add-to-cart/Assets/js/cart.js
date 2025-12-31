@@ -1,35 +1,32 @@
-const cart = JSON.parse( localStorage.getItem("cart")) || []
-let counter = document.getElementById("counter")
 
-const cartContainer = document.getElementById("cart-container")
+function updateUI() {
+  cartContainer.innerHTML = "";
 
-document.addEventListener("DOMContentLoaded", function (){
-    counter.innerHTML = cart.length;
+  cart.forEach(item => {
+    const subtotal = item.price * item.quantity;
 
-    cart.forEach ((prdct, idx) => {
-        cartContainer.innerHTML += `
-        <div class="row ">
-                <div class="col-4">
-                    <div class = mb-3>
-                        <img src="./Assets/images/bag-1.webp" alt="">
-                    </div>
-                </div>
-                <div class="col-8">
-                    <div>
-                        <h2 class="product-name fs-1 text-dark">${prdct.name}</h2>
-                        <p class="subtitle">${prdct.desc}</p>
-                        <div class="quantity">
-                            <input type="button" value="-" class="minus">
-                            <input type="number" step="1" min="1" max="999" name="quantity" value="1" size="4" class="text-center fw-bold mb-0">
-                            <input type="button" value="+" class="minus">
-                        </div>
-                        <p class="price fs-5 text-success my-2">$ ${prdct.price}.00</p>
+    cartContainer.innerHTML += `
+      <div class="row mb-4">
+        <div class="col-4">
+          <img src="${item.image}" class="img-fluid">
+        </div>
+        <div class="col-8">
+          <h4>${item.name}</h4>
+          <p>${item.desc}</p>
 
-                    </div>
-                </div>
-            </div>
-        `
+          <div class="d-flex align-items-center gap-2">
+            <button class="minus" data-id="${item.id}">-</button>
+            <span class="fw-bold">${item.quantity}</span>
+            <button class="plus" data-id="${item.id}">+</button>
+          </div>
 
-    })
+          <p>$ ${item.price}.00</p>
+          <p class="text-success">Subtotal: $ ${subtotal}.00</p>
+        </div>
+      </div>
+    `;
+  });
 
-})
+  counter.innerHTML = cart.length; // 👈 unique products
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
