@@ -19,10 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
       cartContainer.innerHTML += `
         <div class="row mb-4 align-items-center">
           <div class="col-4">
-            <img src="${item.image}" class="img-fluid">
+            <img src="${item.image}" class="img-fluid" height = "459px" width = "360px" >
           </div>
           <div class="col-8">
-            <h4>${item.name}</h4>
+            <h4 class ="fw-bold fs-2">${item.name}</h4>
             <p>${item.desc}</p>
 
             <div class="d-flex align-items-center gap-2">
@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
               <button class="btn btn-sm btn-outline-secondary plus" data-id="${item.id}">+</button>
             </div>
 
-            <p class="mt-2">$ ${item.price}.00</p>
-            <p class="text-success fw-semibold">
+            <p class="mt-2 fw-semibold text-danger">Price: $ ${item.price}.00</p>
+            <p class="text-success fw-bold">
               Subtotal: $ ${subtotal}.00
             </p>
           </div>
