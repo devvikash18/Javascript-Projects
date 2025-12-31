@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function (){
                 <div class="col-8">
                     <div>
                         <h2 class="product-name fs-1 text-dark">${prdct.name}</h2>
-                        <p class="subtitle">TEMPUS CONSECTETUR Ac dis vestibulum ut primis eleifend at neque at ornare mus<br> nostra non senectus magna natoque porta scelerisque molestie taciti lobortis <br> torquent ullamcorper a ullamcorper. Hac suspendisse varius ut...</p>
+                        <p class="subtitle">${prdct.desc}</p>
                         <div class="quantity">
                             <input type="button" value="-" class="minus">
                             <input type="number" step="1" min="1" max="999" name="quantity" value="1" size="4" class="text-center fw-bold mb-0">
